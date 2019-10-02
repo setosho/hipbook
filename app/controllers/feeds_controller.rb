@@ -14,6 +14,7 @@ class FeedsController < ApplicationController
 
   # GET /feeds/new
   def new
+    @feed = Feed.new
     if params[:back]
       @feed = Feed.new(feed_params)
     else
@@ -23,7 +24,7 @@ class FeedsController < ApplicationController
 
   def confirm
     @feed = Feed.new(feed_params)
-    @feed.user_id = current_user.id
+    @feed.users_id = current_user.id
     render :new if @feed.invalid?
   end
 
@@ -35,7 +36,7 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(feed_params)
-    @feed.user_id = current_user.id
+    @feed.users_id = current_user.id
 
     respond_to do |format|
       if @feed.save
@@ -75,7 +76,7 @@ class FeedsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_feed
-      @feed = Feed.new
+      @feed = Feed.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
