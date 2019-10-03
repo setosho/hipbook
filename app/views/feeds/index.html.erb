@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Feeds</h1>
+<h1>投稿画像一覧</h1>
+<br>
 
 <table>
   <thead>
@@ -12,6 +13,7 @@
 
   <tbody>
     <% @feeds.each do |feed| %>
+      <h2><%= feed.user.name %>の投稿</h2>
       <tr>
         <td><%= feed.image %></td>
         <td><%= link_to 'Show', feed %></td>
