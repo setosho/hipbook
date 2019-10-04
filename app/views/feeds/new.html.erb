@@ -2,7 +2,6 @@
 
 <% if logged_in? %>
   <%= render 'form', feed: @feed %>
-  <%= link_to 'Back', feeds_path %>
 <% else %>
   <h4>Please login</h4>
 <% end %>
