@@ -14,7 +14,7 @@
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
-        <td><%= feed.image %></td>
+        <td><%= image_tag "#{feed.image}", :size =>'200x200' %></td>
         <td><%= feed.user.name %>の投稿</td>
         <td><%= feed.content %></td>
         <td><%= link_to '詳細', feed %></td>
